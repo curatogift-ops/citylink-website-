@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Replace example.com with the official City Link domain before launch. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://example.com/</loc></url>
+  <url><loc>https://example.com/about/</loc></url>
+  <url><loc>https://example.com/features/</loc></url>
+  <url><loc>https://example.com/explore/</loc></url>
+  <url><loc>https://example.com/download/</loc></url>
+  <url><loc>https://example.com/contact/</loc></url>
+  <url><loc>https://example.com/support/</loc></url>
+  <url><loc>https://example.com/faqs/</loc></url>
+  <url><loc>https://example.com/privacy-policy/</loc></url>
+  <url><loc>https://example.com/terms-and-conditions/</loc></url>
+  <url><loc>https://example.com/account-deletion/</loc></url>
+  <url><loc>https://example.com/community-guidelines/</loc></url>
+  <url><loc>https://example.com/copyright-complaints/</loc></url>
+</urlset>
