@@ -70,7 +70,7 @@
           "<li><a href=\"" + root + "copyright-complaints/\">Copyright Complaints</a></li>" +
         "</ul></div>" +
       "</div>" +
-      '<div class="wrap legal-line">© ' + year + " City Link. All rights reserved. The legal operator name will be added when it is confirmed.</div>";
+      '<div class="wrap legal-line">© ' + year + " City Link. Operated by Sayyad Aawes Sayyad Akram, Chhatrapati Sambhajinagar, Maharashtra, India. <a href=\"mailto:citylinkapp247@gmail.com\">citylinkapp247@gmail.com</a></div>";
   }
 
   document.querySelectorAll("[data-year]").forEach(function (node) {
@@ -119,16 +119,18 @@
         return;
       }
 
-      var button = form.querySelector("button[type=submit]");
-      if (button) button.disabled = true;
-      window.setTimeout(function () {
-        if (button) button.disabled = false;
-        showStatus(
-          form,
-          "error",
-          "Your message was not sent. City Link has not published a verified support inbox yet, so this form cannot deliver enquiries."
-        );
-      }, 400);
+      var lines = [];
+      form.querySelectorAll("input, select, textarea").forEach(function (field) {
+        if (!field.name || field.closest(".hp")) return;
+        var value = field.type === "checkbox" ? (field.checked ? "Yes" : "No") : String(field.value || "").trim();
+        if (value) lines.push(field.name + ": " + value);
+      });
+      var subjectField = form.querySelector("[name=subject], [name=work], [name=account]");
+      var subject = subjectField && subjectField.value
+        ? "City Link: " + subjectField.value.trim()
+        : "City Link support request";
+      window.location.href = "mailto:citylinkapp247@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+      showStatus(form, "ok", "Your email app should open with this message addressed to citylinkapp247@gmail.com. Send that email to complete the request.");
     });
   });
 
